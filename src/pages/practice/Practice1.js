@@ -39,11 +39,12 @@ const Practice1 = () => {
             data.phone = "phone is required!";
         }
 
+
         setError(data);
         console.log(data);
 
         if (Object.keys(data).length > 0) {
-            return;
+            return;    
         }
 
 

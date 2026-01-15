@@ -6,6 +6,8 @@ import Home from './pages/home/Home';
 import About from './pages/about/About';
 import Contact from './pages/contact/Contact';
 import Practice1 from './pages/practice/Practice1';
+import Practice2 from './pages/practice/Practice2';
+import Pagination from './pages/practice/Pagination';
 
 function App() {
   return (
@@ -16,7 +18,9 @@ function App() {
     <Route path='/about' element={<About/>}/>
     <Route path='/contact' element={<Contact/>}/>
   </Routes> */}
-      <Practice1 />
+      {/* <Practice1 /> */}
+      {/* <Practice2 /> */}
+      <Pagination/>
     </>
   );
 }
