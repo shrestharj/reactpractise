@@ -1,55 +1,67 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import useFetch from "./useFetch";
 
 const data = Array.from({ length: 50 }, (_, i) => `Item ${i + 1}`);
 
 function Pagination() {
-  const itemsPerPage = 5;
-  const [currentPage, setCurrentPage] = useState(1);
+    const [currPage, setCurrPage] = useState(1);
 
-  const totalPages = Math.ceil(data.length / itemsPerPage);
-  const startIndex = (currentPage - 1) * itemsPerPage;
-  const currentItems = data.slice(
-    startIndex,
-    startIndex + itemsPerPage
-  );
+    const { data: mydata } = useFetch("https://jsonplaceholder.typicode.com/posts")
 
-  return (
-    <div>
-      <h3>Pagination Example</h3>
+    const itemPerpage = 5;
 
-      <ul>
-        {currentItems.map((item) => (
-          <li key={item}>{item}</li>
-        ))}
-      </ul>
+    const totalPage = Math.ceil(mydata.length / itemPerpage);
 
-      <button
-        disabled={currentPage === 1}
-        onClick={() => setCurrentPage(prev => prev - 1)}
-      >
-        Prev
-      </button>
 
-      {Array.from({ length: totalPages }, (_, i) => (
-        <button
-          key={i}
-          onClick={() => setCurrentPage(i + 1)}
-          style={{
-            fontWeight: currentPage === i + 1 ? "bold" : "normal"
-          }}
-        >
-          {i + 1}
-        </button>
-      ))}
+    const firstInd = (currPage - 1) * itemPerpage;
+    const lastind = firstInd + itemPerpage;
 
-      <button
-        disabled={currentPage === totalPages}
-        onClick={() => setCurrentPage(prev => prev + 1)}
-      >
-        Next
-      </button>
-    </div>
-  );
+
+
+    const currentItem = mydata.slice(firstInd, lastind);
+
+
+
+    console.log(firstInd,lastind);
+
+
+    const handlePage = (zdhsbfkjdhsaf) => {
+        setCurrPage(zdhsbfkjdhsaf);
+    }
+
+
+
+
+
+    return (
+        <div>
+            <h3>Pagination Example</h3>
+            <ul>
+                {currentItem?.map((item) =>
+                    <>
+                        <li>{item.title}</li>
+                        <br />
+                    </>
+                )}
+            </ul>
+
+
+            <button disabled={currPage==1} onClick={()=>setCurrPage(currPage-1)}>Prev</button>
+
+            {
+                [...Array(totalPage)].map((item, index) =>
+                    <button  style={{padding:10, marginRight:10,marginBottom:10, background:currPage==index+1?"red":""}} onClick={() => handlePage(index + 1)}>{index + 1}</button>
+                )
+
+            }
+
+
+            <button disabled={currPage==totalPage} onClick={()=>setCurrPage(currPage+1)}>Next</button>
+
+
+
+        </div>
+    );
 }
 
 export default Pagination;

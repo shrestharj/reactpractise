@@ -9,9 +9,7 @@ const Practice2 = () => {
     const { data: oiui0k } = useFetch("https://jsonplaceholder.typicode.com/posts")
     const { data: lpkjpllk } = useFetch("https://jsonplaceholder.typicode.com/comments")
 
-    console.log(oiui0k, lpkjpllk)
-
-
+    console.log(oiui0k, lpkjpllk);
 
 
     return (
