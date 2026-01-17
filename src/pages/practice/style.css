@@ -1,0 +1,74 @@
+/* Reset */
+
+
+/* Form container */
+form {
+  width: 320px;
+  margin: 50px auto;
+  padding: 25px;
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Form field wrapper */
+form div {
+  margin-bottom: 16px;
+}
+
+/* Labels */
+label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+}
+
+/* Inputs & select */
+input,
+select {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+/* Focus effect */
+input:focus,
+select:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
+}
+
+/* Placeholder */
+input::placeholder {
+  color: #9ca3af;
+}
+
+/* Button */
+button {
+  width: 100%;
+  padding: 11px;
+  background-color: #2563eb;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+/* Button hover */
+button:hover {
+  background-color: #1e40af;
+}
+
+/* Button active */
+button:active {
+  transform: scale(0.98);
+}

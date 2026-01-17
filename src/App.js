@@ -8,6 +8,7 @@ import Contact from './pages/contact/Contact';
 import Practice1 from './pages/practice/Practice1';
 import Practice2 from './pages/practice/Practice2';
 import Pagination from './pages/practice/Pagination';
+import Register from './pages/practice/Register';
 
 function App() {
   return (
@@ -20,7 +21,8 @@ function App() {
   </Routes> */}
       {/* <Practice1 /> */}
       {/* <Practice2 /> */}
-      <Pagination/>
+      {/* <Pagination/> */}
+      <Register/>
     </>
   );
 }
