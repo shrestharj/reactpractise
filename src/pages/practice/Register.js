@@ -1,5 +1,7 @@
 import { useState } from "react";
 import './style.css'
+import axios from 'axios';
+
 
 const Register = () => {
     const [formData, setFormData] = useState({
@@ -38,44 +40,66 @@ const Register = () => {
     //         )
     // };
 
+    // const handleSubmit = async (e) => {
+    //     e.preventDefault();
+
+    //     try {
+    //         const res = await fetch(
+    //             "https://enterprise-admin-backend.onrender.com/api/auth/register",
+    //             {
+    //                 method: "POST",
+    //                 headers: {
+    //                     "Content-Type": "application/json",
+    //                 },
+    //                 body: JSON.stringify(formData),
+    //             }
+    //         );
+
+    //         const data = await res.json();
+
+    //         console.log(res.ok)
+
+    //         if (!res.ok) {
+    //             throw new Error(data.message || "Registration failed");
+    //         }
+
+    //         if (data.success) {
+    //             setFormData({
+    //                 name: "",
+    //                 email: "",
+    //                 password: "",
+    //                 role: "user",
+    //             });
+    //         }
+
+    //         console.log("Response:", data);
+    //     } catch (error) {
+    //         console.error("Error:", error.message);
+    //     }
+    // };
+
+
+    //call through axios
     const handleSubmit = async (e) => {
         e.preventDefault();
 
         try {
-            const res = await fetch(
-                "https://enterprise-admin-backend.onrender.com/api/auth/register",
+            const response = await axios.post("https://enterprise-admin-backend.onrender.com/api/auth/register", formData,
                 {
-                    method: "POST",
                     headers: {
                         "Content-Type": "application/json",
                     },
-                    body: JSON.stringify(formData),
                 }
             );
 
-            const data = await res.json();
 
-            console.log(res.ok)
-
-            if (!res.ok) {
-                throw new Error(data.message || "Registration failed");
-            }
-
-            if (data.success) {
-                setFormData({
-                    name: "",
-                    email: "",
-                    password: "",
-                    role: "user",
-                });
-            }
-
-            console.log("Response:", data);
         } catch (error) {
-            console.error("Error:", error.message);
+            console.error(
+                "Registration failed:",
+                error.response?.data || error.message
+            );
         }
     };
-
 
 
 
