@@ -1,9 +1,13 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useReducer, useState } from 'react'
+import { useSelector } from 'react-redux';
+
+
 
 const Home = () => {
     const [data, setData] = useState([]);
 
-
+    const commentData = useSelector((state) => state?.commentdata);
+    console.log(commentData);
     useEffect(() => {
         fetch('https://jsonplaceholder.typicode.com/todos/')
             .then(response => response.json())
@@ -16,11 +20,11 @@ const Home = () => {
             {
                 data.map((item, index, arr) => {
                     {
-                        console.log(index +"this is " + arr)
+                        console.log(index + "this is " + arr)
                     }
                     return <p>{index} {item.title}</p>
 
-                    
+
                 }
 
                 )

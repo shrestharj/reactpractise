@@ -1,0 +1,1 @@
+export const COMMENT_DATA = "COMMENT_DATA";
