@@ -1,19 +1,18 @@
-import { COMMENT_DATA } from "../constant"
+import { COMMENT_DATA } from "../constant";
 
+const initialState = {
+  commentList: [],
+};
 
-const initialData = [];
+export const commentReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case COMMENT_DATA:
+      return {
+        ...state,
+        commentList: action.payload,
+      };
 
-export const commentReducer = (state = initialData, action) => {
-
-    switch (action.type) {
-
-        case COMMENT_DATA:
-            console.log(action, "reducer");
-            return action.payload;
-
-        default:
-            return state;
-    }
-}
-
-
+    default:
+      return state;
+  }
+};
